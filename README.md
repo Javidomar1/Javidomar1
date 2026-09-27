@@ -6,10 +6,6 @@
 
 ###
 
-<img data-importer="image" align="left" height="150" src="https://avatars.githubusercontent.com/u/328091778?v=4"  />
-
-###
-
 <p data-importer="text" align="left">My name is Javi</p>
 
 ###
