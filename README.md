@@ -29,6 +29,9 @@
 </div>
 
 ###
+<div data-importer="border">
+  <img style="100%" src="https://capsule-render.vercel.app/api?type=waving&height=80&section=header&reversal=false&fontSize=70&fontColor=FFFFFF&fontAlign=5&fontAlignY=0&stroke=-&descSize=20&descAlign=50&descAlignY=50&color=gradient"  />
+</div>
 
 <div data-importer="stats" align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=Javidomar1&show_icons=true&theme=dracula&include_all_commits=true" height="150" alt="stats graph" />
