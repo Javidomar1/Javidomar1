@@ -1,7 +1,5 @@
 <h1 data-importer="text" align="left">Hey 👋 What's up?<h1>
 
-###
-
 <h2 data-importer="text" align="left">About me</h2>
 
 ###
