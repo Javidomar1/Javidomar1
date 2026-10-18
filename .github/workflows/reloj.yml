@@ -1,0 +1,46 @@
+name: Actualizar Días
+
+on:
+  schedule:
+    - cron: '0 6 * * *' # Se actualiza solo cada día
+  workflow_dispatch:    # Botón para probarlo al instante
+
+permissions:
+  contents: write
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Calcular días y actualizar README
+        run: |
+          HOY=$(date +%s)
+          INICIO=$(date -d "2026-09-01" +%s)
+          PRACTICAS=$(date -d "2027-02-27" +%s)
+          CURSO=$(date -d "2027-06-23" +%s)
+
+          # Cálculo de días restantes
+          DIAS_P=$(( (PRACTICAS - HOY) / 86400 ))
+          DIAS_C=$(( (CURSO - HOY) / 86400 ))
+
+          # Cálculo de porcentaje para las barras (de 0 a 100)
+          PORC_P=$(( (HOY - INICIO) * 100 / (PRACTICAS - INICIO) ))
+          PORC_C=$(( (HOY - INICIO) * 100 / (CURSO - INICIO) ))
+
+          # Crear el bloque con las barras
+          BLOQUE="<!-- RELOJ:START -->
+          🏢 **Prácticas (27 feb):** ![Progreso](https://geps.dev/progress/$PORC_P) **~$DIAS_P días aprox.**
+
+          🎓 **Fin de curso (23 jun):** ![Progreso](https://geps.dev/progress/$PORC_C) **~$DIAS_C días aprox.**
+          <!-- RELOJ:END -->"
+
+          # Reemplazar en el README
+          perl -i -0777 -pe "s/<!-- RELOJ:START -->.*<!-- RELOJ:END -->/$BLOQUE/s" README.md
+
+          # Guardar cambios
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -am "Actualizar cuenta atrás" || exit 0
+          git push
