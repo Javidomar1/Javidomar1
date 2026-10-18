@@ -10,7 +10,7 @@
 
 ###
 
-<p data-importer="text" align="left">✨system.out.printlns("Hello World");<br>📚 I'm currently learning DAM<br>🎯 Goals: Learn a lot <br>🎲 Fun fact:</p>
+<p data-importer="text" align="left">✨`System.out.println("Hello World")`;<br>📚 I'm currently learning DAM<br>🎯 Goals: Learn a lot <br>🎲 Fun fact:</p>
 
 ###
 
