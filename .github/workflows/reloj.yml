@@ -2,8 +2,8 @@ name: Actualizar Días
 
 on:
   schedule:
-    - cron: '0 6 * * *' # Se actualiza solo cada día
-  workflow_dispatch:    # Botón para probarlo al instante
+    - cron: '0 6 * * *' # Se actualiza solo cada día a las 6:00 UTC
+  workflow_dispatch:    # Botón para ejecutarlo manualmente
 
 permissions:
   contents: write
@@ -12,7 +12,8 @@ jobs:
   actualizar:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
 
       - name: Calcular días y actualizar README
         run: |
@@ -29,18 +30,20 @@ jobs:
           PORC_P=$(( (HOY - INICIO) * 100 / (PRACTICAS - INICIO) ))
           PORC_C=$(( (HOY - INICIO) * 100 / (CURSO - INICIO) ))
 
-          # Crear el bloque con las barras
-          BLOQUE="<!-- RELOJ:START -->
-          🏢 **Prácticas (27 feb):** ![Progreso](https://geps.dev/progress/$PORC_P) **~$DIAS_P días aprox.**
+          # Asegurar que el porcentaje esté entre 0 y 100
+          [ $PORC_P -lt 0 ] && PORC_P=0
+          [ $PORC_P -gt 100 ] && PORC_P=100
+          [ $PORC_C -lt 0 ] && PORC_C=0
+          [ $PORC_C -gt 100 ] && PORC_C=100
 
-          🎓 **Fin de curso (23 jun):** ![Progreso](https://geps.dev/progress/$PORC_C) **~$DIAS_C días aprox.**
-          <!-- RELOJ:END -->"
+          # Crear el bloque con las barras
+          BLOQUE="<!-- RELOJ:START -->\n🏢 **Prácticas (27 feb):** ![Progreso](https://geps.dev/progress/${PORC_P}) **~${DIAS_P} días aprox.**\n\n🎓 **Fin de curso (23 jun):** ![Progreso](https://geps.dev/progress/${PORC_C}) **~${DIAS_C} días aprox.**\n<!-- RELOJ:END -->"
 
           # Reemplazar en el README
-          perl -i -0777 -pe "s/<!-- RELOJ:START -->.*<!-- RELOJ:END -->/$BLOQUE/s" README.md
+          perl -i -0777 -pe "s#<!-- RELOJ:START -->.*<!-- RELOJ:END -->#$BLOQUE#s" README.md
 
-          # Guardar cambios
+          # Guardar y subir los cambios
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git commit -am "Actualizar cuenta atrás" || exit 0
+          git commit -am "🔄 Actualizar cuenta atrás" || exit 0
           git push
