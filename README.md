@@ -1,6 +1,8 @@
 <h1 data-importer="text" align="left">Hey 👋 What's up?<h1>
-     
-                                                                                                                                            
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Javidomar1/Javidomar1/main/javi.svg" alt="Javi" />
+</div>
 
 <h2 data-importer="text" align="left">About me</h2>
 
