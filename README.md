@@ -39,7 +39,7 @@
   <img src="https://github-readme-stats.vercel.app/api?username=Javidomar1&show_icons=true&theme=dracula&include_all_commits=true" height="150" alt="stats graph" />
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Javidomar1&layout=compact&langs_count=5&theme=dracula" height="150" alt="languages graph" />
 </div>
-###
+
 
 <picture data-importer="pacman">
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Javidomar1/Javidomar1/pacman-output/pacman-contribution-graph-dark.svg?game=pacman">
@@ -47,7 +47,6 @@
   <img alt="pacman contribution graph" src="https://raw.githubusercontent.com/Javidomar1/Javidomar1/pacman-output/pacman-contribution-graph.svg?game=pacman">
 </picture>
 
-###
 
 <div data-importer="border">
   <img style="100%" src="https://capsule-render.vercel.app/api?type=waving&height=80&section=header&reversal=false&fontSize=70&fontColor=FFFFFF&fontAlign=5&fontAlignY=0&stroke=-&descSize=20&descAlign=50&descAlignY=50&color=gradient"  />
