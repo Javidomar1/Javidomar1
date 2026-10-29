@@ -34,12 +34,8 @@
 </div>
 
 <div align="center">
-  <a href="https://github.com/anuraghazra/github-readme-stats">
-    <img src="https://github-readme-stats.vercel.app/api?username=Javidomar1&show_icons=true&theme=dracula&include_all_commits=true" alt="Javi's GitHub stats" />
-  </a>
-  <a href="https://github.com/anuraghazra/github-readme-stats">
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Javidomar1&layout=compact&langs_count=5&theme=dracula" alt="Most Used Languages" />
-  </a>
+  <img src="https://github-readme-stats-extended.vercel.app/api?username=Javidomar1&show_icons=true&theme=dracula&include_all_commits=true" alt="stats graph" />
+  <img src="https://github-readme-stats-extended.vercel.app/api/top-langs/?username=Javidomar1&layout=compact&langs_count=5&theme=dracula" alt="languages graph" />
 </div>
 
 <br>
